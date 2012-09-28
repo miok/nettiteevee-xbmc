@@ -1,0 +1,17 @@
+<?xml version="1.0.1" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.katsomo"
+       name="Katsomo.fi"
+       version="0.1"
+       provider-name="miok">
+  <requires>
+    <import addon="xbmc.python" version="1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary lang="en">Katsomo</summary>
+    <description lang="en">Finnish MTV3 programs</description>
+  </extension>
+</addon>
