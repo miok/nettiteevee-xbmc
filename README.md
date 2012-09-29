@@ -11,6 +11,10 @@ check source to get idea what python modules you need.
 This plugin uses modified version of yle-dl -script and it is included as yledl.py
 and used as module in plugin.video.yle directory.
 
+Using katsomo plugin may require VC-1 license for video playpack. You can purchase it from
+http://www.raspberrypi.com/vc-1-license-key/
+
+
 
 LICENSE:
 ================
