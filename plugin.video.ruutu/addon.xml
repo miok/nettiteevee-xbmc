@@ -1,8 +1,8 @@
 <?xml version="1.0.1" encoding="UTF-8" standalone="yes"?>
 <addon id="plugin.video.ruutu"
        name="Ruutu.fi"
-       version="0.2"
-       provider-name="miok">
+       version="0.3"
+       provider-name="miok, jaynar">
   <requires>
     <import addon="xbmc.python" version="1.0"/>
     <import addon="script.common.plugin.cache" version="0.9.1"/>
