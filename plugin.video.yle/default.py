@@ -1,6 +1,7 @@
 # vim: set fileencoding=utf8
 
 import urllib, urllib2, sys, os
+import subprocess
 import feedparser
 import xbmcplugin,xbmcgui,xbmc
 import traceback
@@ -17,7 +18,9 @@ teemat={
 	"Uusimmat ohjelmat": "http://areena.yle.fi/tv/kaikki.rss?jarjestys=uusin&media=video",
 	"Ajankohtaisohjelmat": "http://areena.yle.fi/tv/dokumentit-ja-fakta/ajankohtaisohjelmat.rss",
 	"Asiaviihde": "http://areena.yle.fi/tv/dokumentit-ja-fakta/asiaviihde.rss",
-	"Luonto": "http://areena.yle.fi/tv/dokumentit-ja-fakta/luonto.rss"
+	"Luonto": "http://areena.yle.fi/tv/dokumentit-ja-fakta/luonto.rss",
+	"DJOrion": "http://areena.yle.fi/api/search.rss?id=1474943&media=audio&sisalto=ohjelmat",
+	"Parasta ennen": "http://areena.yle.fi/api/search.rss?id=1653889&media=audio&sisalto=ohjelmat"
 	
 }
 
@@ -80,7 +83,7 @@ if 'teema' in request:
 
 if 'search' in request:
 	hakusana = getKeyboard()
-	items = p.parse("http://areena.yle.fi/.rss?media=video&q=" + hakusana)
+	items = p.parse("http://areena.yle.fi/.rss?&q=" + hakusana)
 	print items
         for item in items:
                 url = sys.argv[0] + "?item_url=" + item[1]
@@ -93,13 +96,17 @@ if 'search' in request:
 if 'item_url' in request:
 	print request
 	item_url = request['item_url']
-	areena = AreenaNGDownloader()
 	try: 
 		os.remove("/tmp/areenasub.fin.srt")
 	except:
 		pass
-	output = areena.print_urls(item_url, False).rstrip()
-	print output
+	print item_url, "jeejejejeej"
+	pp = subprocess.check_output(['yle-dl', '--showurl', item_url])
+	output = pp.rstrip()
+	if len(output) < 2:
+		item_url = item_url.replace("tv", "radio")
+		pp = subprocess.check_output(['yle-dl', '--showurl', item_url])
+		output = pp.rstrip()
 	item = xbmcgui.ListItem("YLE");
 	params = output.split(" ")
 	skip = 0
