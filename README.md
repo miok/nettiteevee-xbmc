@@ -8,8 +8,7 @@ Clone repository and copy directories to ~/.xbmc/addons/
 You need xbmc and some python plugins installed
 check source to get idea what python modules you need.
 
-This plugin uses modified version of yle-dl -script and it is included as yledl.py
-and used as module in plugin.video.yle directory.
+This plugin uses now default of yle-dl so add it to your PATH
 
 Using katsomo plugin may require VC-1 license for video playback. You can purchase it from
 http://www.raspberrypi.com/vc-1-license-key/
