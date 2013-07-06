@@ -5,8 +5,6 @@ import subprocess
 import feedparser
 import xbmcplugin,xbmcgui,xbmc
 import traceback
-import yledl
-from yledl import AreenaNGDownloader
 
 # plugin handle
 handle = int(sys.argv[1])
